@@ -1,0 +1,37 @@
+Introduction to the subject of the thesis; try to break down/explain the title and purpose of the thesis
+    -- Hi, my name is Karoly Szanto and in the followings I will walk you through the work I've done as part
+       of my masters' thesis where I have researched and designed An Environment Simulator for Mobile
+       Context-Aware System Design!
+
+The Problem
+    -- Designing and developing mobile context-aware systems in a real-life set-up represents a tedious,
+       costly and time consuming process. In addition, most systems require testing and experimentation
+       in their target location for valid and beneficial results to be produced; however it is difficult
+       and costly to set up a certain location to support the designed system. Moreover, incorporating
+       physical objects into the system design, adds up to the aforementioned challenges.
+
+Short introduction to EgoSim and what it does
+
+Describe the BIG problem -- what it is and what is the answer for it (simulator)
+Describe the SMALL problem -- the actual problem that I have solved in this thesis
+    -- egocentric interaction paradigm
+    -- the SSM as part of it
+    -- why is this such a big deal for me? why did I choose to treat this problem
+
+
+    
+A motivational example of how this my work solve the problem!
+    -- I'm thinking to present the SECURE_OUTLET scenario
+Short description of my solution
+    -- gotta figure out how technical to get here ?!
+    -- probably just stay at a really high level... somewhere at design level
+    -- talk about most components: e.g. the agent, the scene, etc
+Present the Evaluation Results
+    -- what kind of evaluation I've done and why; I wanted to do a comparative evalution... (take this part
+       from the thesis)
+    -- number of participants and their profile
+    -- what kind of questions did I ask
+    -- a summary of the results
+    -- present a few user answers as quotes ;) -- some good & some bad
+
+DEMO!

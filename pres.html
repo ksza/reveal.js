@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>An Environment Simulator for Mobile Context-Aware System Design</title>
+
+        <meta name="description" content="An Environment Simulator for Mobile Context-Aware System Design">
+        <meta name="author" content="Károly Szántó">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="css/reveal.min.css">
+        <link rel="stylesheet" href="css/theme/simple.css" id="theme">
+
+        <!-- <link rel="stylesheet" href="css/print/pdf.css"> -->
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+        <script>
+            if( window.location.search.match( /print-pdf/gi ) ) {
+                var link = document.createElement( 'link' );
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = 'css/print/pdf.css';
+                document.getElementsByTagName( 'head' )[0].appendChild( link );
+            }
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                    <section>
+                        <h3>An Environment Simulator for Mobile Context-Aware System Design</h3>
+                        <br /><br />
+                        <p>
+                            <a href="mailto:szanto.karoly@gmail.com">Károly Szántó</a>
+                        </p>
+
+                        <aside class="notes">
+                            - Short introduction to what this thesis is about and what we did
+                        </asside>
+                    </section>
+                </section>
+
+                <!-- High Level Introduction -->
+                <section>
+                    <section>
+                        <h3>Introduction</h3>
+                        <br /><br />
+                        <ul>
+                            <li>Context & Context-Aware Systems</li>
+                            <li>Context-Aware System Design</li>
+                            <li>Device-Centric Design</li>
+                        </ul>
+
+                        <aside class="notes">
+                            - A few words on context-awares: what is context and how context aware systems use it
+                            - What does it mean to design a context-aware system. What info you need to have at hand
+                              and how u can use it as a designer. Moreover, how it ends up being used by the
+                              developer
+                            - Why did system design evolve towards being device-centric? What is actually
+                              device-centric design?
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Introduction</h3>
+                        <br /><br />
+                        <ul>
+                            <li>Device-Centric Design - Easy to encorporate device, hard to encorporate physical objects</li>
+                            <li>Egocentric Interaction Paradigm</li>
+                        </ul>
+
+                        <aside class="notes">
+                            - Shortly address how including physical objects into the system design poses a challenge
+                            - What is Egocentric Interaction Paradigm and how does it come to help?
+                            - Make a parallel with the WIMP paradigm (emplain it!)
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Introduction: SSM</h3>
+                        <img src="assets/ssm_sets.png" />
+
+                        <aside class="notes">
+                            - Briefly talk about the Situative Space Model
+                            - Make a parallen on what it means for the Egocentric Paradigm having the WIMP
+                              in mind
+                            - The SSM is meant to categorize objects around the agent, into a number of sets,
+                              based on it’s continuously evolving state as it interacts with the surrounding
+                              environment.
+                        </aside>
+                    </section>
+                </section>
+
+
+                <!-- Introduction to The Problem and the Proposed Solution -->
+                <section>
+                    <section>
+                        <h3>The Problem</h3>
+                        <br /><br />
+                        <p>Designing and developing mobile context-aware systems in a real-life set-up represents a tedious, costly and time consuming process.</p>
+
+                        <aside class="notes">
+                            - Evaluating the SSM was a tedious work and consisted in creating a real-life setup,
+                              with digitally enhanced physical objects (various sensors to track agent proximity
+                              and actions) while using a wide range of technologies to track the agent’s current
+                              situation (body position, orientation, visual spectrum etc.). This is a costly and
+                              time consuming process making further development and evaluation of the egocentric
+                              paradigm a challenge.
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>The Goal</h3>
+                        <br /><br />
+                        <p>"Simulation enables researchers to evaluate scenarios and applications without the difficulties of dealing with hardware sensors and actuators."</p>
+                        <p><small>[V. Reynolds, V. Cahill, and A. Senart, "Requirements for an ubiquitous computing simulation and emulation environment", 2006]</small></p>
+
+                        <aside class="notes">
+                            - The goal of this project is to design and implement an open-source
+                              simulation framework that can help developers of mobile contextaware
+                              systems to explore design alternatives. The framework has to dynamically classify
+                              physical objects, virtual objects and mediators that are close to the human agent
+                              according to the situative space model (SSM), allowing the context-aware system
+                              developer to design system logic on the basis of this classification. The human
+                              agent is to be represented as an avatar that can move around and perform basic
+                              interaction with objects in the simulated environment.
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Example Scenario: Secure Outlets</h3>
+                        <br /><br />
+                        <p><small>The hypothetical problem presented in this scenario is that families cannot make their homes
+                           secure enough for their children. To providea solution for this problem, there’s a need for
+                           a system to constantly monitor the objects a child should keep away from and should not be interacting with.</small></p>
+
+                        <aside class="notes">
+                            This scenario has been used as a ground for gathering requirements for our
+                            system!
+
+                            The hypothetical problem presented in this scenario is that families
+                            cannot make their homes secure enough for their children. To provide
+                            a solution for this problem, there’s a need for a system to constantly
+                            monitor the objects a child should keep away from and should not
+                            be interacting with. Based on this context information, we can further
+                            build various software service to secure the house from the child’s
+                            actions. One example of such service is the "Secure Outlets Service"
+                            (SOS). This service has to detect whenever a child is approaching an
+                            outlet with a small object, in which case it should shut down the electricity
+                            switch for outlets, preventing the child from the possibility of
+                            getting electrocuted.
+
+                            A good solution for this problem could be based on the egocentric
+                            interaction paradigm, as it can categorizes all the objects of interest
+                            around the human agent. Before implementing the system in a real
+                            world set-up, it is best to validate the design by simulating it.
+                        </aside>
+                    </section>
+                </section>
+
+
+                <!-- Solution Overview -->
+                <section>
+                    <section>
+                        <h3>EgoSim</h3>
+                        <img src="assets/egosim_logo_small.jpg" />
+
+                        <aside class="notes">
+                            -  EgoSim, the open source framework develped as part of this Masters' Thesis
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>EgoSim: Open-Source Framework</h3>
+                        <p><a href="https://github.com/ksza/EgoSim">https://github.com/ksza/EgoSim</a></p>
+                        <br />
+                        <p>Built on top of the <a href="http://jmonkeyengine.org/">JMonkey Engine 3D game engine</a></p>
+                    </section>
+
+                    <section>
+                        <h3>EgoSim: Overview & Features</h3>
+                        <br /><br />
+                        <ul>
+                            <li>Works with <a href="http://www.blender.org/">Blender</a> 3D models</li>
+                            <li class="fragment">Import and Edit environments with Egocentric Context Data parameters</li>
+                            <li class="fragment">First-Person navigation and interaction with the simulated environment</li>
+                            <li class="fragment">Real-Time computation of the SSM spaces</li>
+                            <li class="fragment">RESTful API to retrieve SSM context data</li>
+                            <li class="fragment">Continous visualisation service -- the ContextClient</li>
+                        </ul>
+
+                        <aside class="notes">
+                            - Use Blender to model 3D environments
+                            - A 3D model simply resembles what a certain model represents, augment it with
+                              egocentric context data to instruct the framework to take it into account
+                            - controls to navigate and interact with the env. Also has collision controls
+                              so the agent won't walk through rigid bodies
+                            - as the agent interacts with the environment, compute the SSM spaces
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>EgoSim: Usage</h3>
+                        <br /><br />
+                        <ul>
+                            <li>As a "System Designer"</li>
+                            <li>As a "Simulation User"</li>
+                            <li>As a "Third Party Service"</li>
+                        </ul>
+
+                        <aside class="notes">
+                            Explain how each user group would use the framework
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Demo!</h3>
+
+                        <aside class="notes">
+                            - How to import and configure an environment
+                            - How to write custom behaviour
+                            - Navigating throught the environment and interacting with stuff
+                            - The context client & the API
+                        </aside>
+                    </section>
+                </section>
+
+
+                <!-- Final -->
+                <section>
+                    <h1>Thank You!</h1>
+                    <br /><br />
+                    <p>
+                        <a href="mailto:szanto.karoly@gmail.com">Károly Szántó</a>
+                    </p>
+
+                </section>
+
+            </div>
+
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.min.js"></script>
+
+        <script>
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+                slideNumber: true,
+
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Parallax scrolling
+                // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+                // parallaxBackgroundSize: '2100px 900px',
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>
