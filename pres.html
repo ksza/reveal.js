@@ -58,24 +58,45 @@
                     </section>
                 </section>
 
+                <section>
+                    <h3>Overview</h3>
+
+                    <ul>
+                        <li>Introduction</li>
+                        <li>The EgoSim Framework</li>
+                        <li>Motivational example</li>
+                        <li>DEMO!</li>
+                        <li>Evaluation Results</li>
+                        <li>A few words about Design</li>
+                    </ul>
+                </section>
+
                 <!-- High Level Introduction -->
                 <section>
                     <section>
                         <h3>Introduction</h3>
                         <br /><br />
                         <ul>
+                            <li>Ubicomp</li>
                             <li>Context & Context-Aware Systems</li>
                             <li>Context-Aware System Design</li>
-                            <li>Device-Centric Design</li>
                         </ul>
 
                         <aside class="notes">
-                            - A few words on context-awares: what is context and how context aware systems use it
-                            - What does it mean to design a context-aware system. What info you need to have at hand
-                              and how u can use it as a designer. Moreover, how it ends up being used by the
-                              developer
-                            - Why did system design evolve towards being device-centric? What is actually
-                              device-centric design?
+<small><ul>
+    <li>
+        Ubicomp = a concept in software engineering and computer science where aiming to make computing appear everywhere and anywhere. The vision of this concept is to seamlesly integrate technology into our everyday lives.
+    </li>
+    <li>
+        Context-Awareness = an area from ubicomp which is meant to deal with linking changes in the environment with computer systems, which are otherwise static.
+    </li>
+    <li>
+        Context = is any information that can be used to characterize the situation of an entity, where an entity can be a person, place, or physical or computational object.
+    </li>
+    <li>
+        Context-Aware System = use the context to provide task-relevant information and/or services to a user. These systems aim to take away the explicit interation and replace it with implicit interaction. The system is tailored in such way to understand the current situtation of the user in regards with the system he/she is interacting with. E.g. -> the "nearby printer" example
+    </li>
+</ul></small>                            
                         </aside>
                     </section>
 
@@ -88,9 +109,20 @@
                         </ul>
 
                         <aside class="notes">
-                            - Shortly address how including physical objects into the system design poses a challenge
-                            - What is Egocentric Interaction Paradigm and how does it come to help?
-                            - Make a parallel with the WIMP paradigm (emplain it!)
+<small><ul>
+    <li>
+        While designing mobile pervasive computing environments, software developers are bound to work with cutting edge hardware and software technologies and to adopt new communication models for HCI.
+    </li>
+    <li>
+        Much of the effort has been devoted to address hardware and software challenges and with the explosion of devices in the form of mobile phones and tablets having a wide range of sensing capabilities, modelling of context-aware software became device-centric. This way, designers of mobile contextaware systems base their design mostly on device sensory data.
+    </li>
+    <li>
+        In our everyday lives we encounter and interact with our surrounding environment through a wide range of mobile devices and physical objects. While the current device-centric modeling makes it easy to incorporate devices, incorporating physical objects into a contextaware system design, remains a challenge. When trying to integrate physical objects into the system design, the designer is bound to think in terms of existing technologies that can facilitate their integration; for example, making a system aware of a chair, a designer might think about attaching various sensors to it (pressure, motion, proximity, etc). While the device-centric modeling makes it natural to think about devices, when it comes to integrate physical objects, it limits the designer instead of offering a natural way to solve the problem.
+    </li>
+    <li>
+        The egocentric-interaction paradigm addresses the struggle of conceptually incorporating the real world into the system design. It is a bodycentric modeling framework that incorporates physical objects, mediators (i.e. devices) and virtual objects on the basis of proximity and human perception. ”Egocentric” signals that it is the human body and mind of a specific human individual that acts as centre of reference to which all modeling is anchored in this interaction paradigm.
+    </li>
+</small></ul>
                         </aside>
                     </section>
 
@@ -99,12 +131,17 @@
                         <img src="assets/ssm_sets.png" />
 
                         <aside class="notes">
-                            - Briefly talk about the Situative Space Model
-                            - Make a parallen on what it means for the Egocentric Paradigm having the WIMP
-                              in mind
-                            - The SSM is meant to categorize objects around the agent, into a number of sets,
-                              based on it’s continuously evolving state as it interacts with the surrounding
-                              environment.
+<small><ul>                            
+    <li>
+        The Situative Space Model (SSM) is an interaction model and a design tool which captures what a specific human agent can perceive and not perceive, reach and not reach, at any given moment in time.
+    </li>
+    <li>
+        The SSM is meant to categorize objects around the agent, into a number of sets, based on it’s continuously evolving state as it interacts with the surrounding environment. (Shortly describe the sets!)
+    </li>
+    <li>
+        Make a parallel with the WIMP paradigm (emplain it!)
+    </li>
+</small></ul>
                         </aside>
                     </section>
                 </section>
@@ -118,12 +155,14 @@
                         <p>Designing and developing mobile context-aware systems in a real-life set-up represents a tedious, costly and time consuming process.</p>
 
                         <aside class="notes">
-                            - Evaluating the SSM was a tedious work and consisted in creating a real-life setup,
-                              with digitally enhanced physical objects (various sensors to track agent proximity
-                              and actions) while using a wide range of technologies to track the agent’s current
-                              situation (body position, orientation, visual spectrum etc.). This is a costly and
-                              time consuming process making further development and evaluation of the egocentric
-                              paradigm a challenge.
+<small>                            
+    Evaluating the SSM was a tedious work and consisted in creating a real-life setup,
+    with digitally enhanced physical objects (various sensors to track agent proximity
+    and actions) while using a wide range of technologies to track the agent’s current
+    situation (body position, orientation, visual spectrum etc.). This is a costly and
+    time consuming process making further development and evaluation of the egocentric
+    paradigm a challenge.
+</small>    
                         </aside>
                     </section>
 
@@ -134,14 +173,16 @@
                         <p><small>[V. Reynolds, V. Cahill, and A. Senart, "Requirements for an ubiquitous computing simulation and emulation environment", 2006]</small></p>
 
                         <aside class="notes">
-                            - The goal of this project is to design and implement an open-source
-                              simulation framework that can help developers of mobile contextaware
-                              systems to explore design alternatives. The framework has to dynamically classify
-                              physical objects, virtual objects and mediators that are close to the human agent
-                              according to the situative space model (SSM), allowing the context-aware system
-                              developer to design system logic on the basis of this classification. The human
-                              agent is to be represented as an avatar that can move around and perform basic
-                              interaction with objects in the simulated environment.
+<small>                            
+    The goal of this project is to design and implement an open-source
+    simulation framework that can help developers of mobile contextaware
+    systems to explore design alternatives. The framework has to dynamically classify
+    physical objects, virtual objects and mediators that are close to the human agent
+    according to the situative space model (SSM), allowing the context-aware system
+    developer to design system logic on the basis of this classification. The human
+    agent is to be represented as an avatar that can move around and perform basic
+    interaction with objects in the simulated environment.
+</small>    
                         </aside>
                     </section>
 
@@ -153,25 +194,27 @@
                            a system to constantly monitor the objects a child should keep away from and should not be interacting with.</small></p>
 
                         <aside class="notes">
-                            This scenario has been used as a ground for gathering requirements for our
-                            system!
+<small>                            
+    This scenario has been used as a ground for gathering requirements for our
+    system!
 
-                            The hypothetical problem presented in this scenario is that families
-                            cannot make their homes secure enough for their children. To provide
-                            a solution for this problem, there’s a need for a system to constantly
-                            monitor the objects a child should keep away from and should not
-                            be interacting with. Based on this context information, we can further
-                            build various software service to secure the house from the child’s
-                            actions. One example of such service is the "Secure Outlets Service"
-                            (SOS). This service has to detect whenever a child is approaching an
-                            outlet with a small object, in which case it should shut down the electricity
-                            switch for outlets, preventing the child from the possibility of
-                            getting electrocuted.
+    The hypothetical problem presented in this scenario is that families
+    cannot make their homes secure enough for their children. To provide
+    a solution for this problem, there’s a need for a system to constantly
+    monitor the objects a child should keep away from and should not
+    be interacting with. Based on this context information, we can further
+    build various software service to secure the house from the child’s
+    actions. One example of such service is the "Secure Outlets Service"
+    (SOS). This service has to detect whenever a child is approaching an
+    outlet with a small object, in which case it should shut down the electricity
+    switch for outlets, preventing the child from the possibility of
+    getting electrocuted.
 
-                            A good solution for this problem could be based on the egocentric
-                            interaction paradigm, as it can categorizes all the objects of interest
-                            around the human agent. Before implementing the system in a real
-                            world set-up, it is best to validate the design by simulating it.
+    A good solution for this problem could be based on the egocentric
+    interaction paradigm, as it can categorizes all the objects of interest
+    around the human agent. Before implementing the system in a real
+    world set-up, it is best to validate the design by simulating it.
+</small>    
                         </aside>
                     </section>
                 </section>
