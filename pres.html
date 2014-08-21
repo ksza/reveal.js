@@ -45,30 +45,53 @@
             <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
                 <section>
-                    <section>
-                        <h3>An Environment Simulator for Mobile Context-Aware System Design</h3>
-                        <br /><br />
-                        <p>
-                            <a href="mailto:szanto.karoly@gmail.com">Károly Szántó</a>
-                        </p>
+                    <h3>An Environment Simulator for Mobile Context-Aware System Design</h3>
+                    <br /><br />
+                    <p>
+                        <a href="mailto:szanto.karoly@gmail.com">Károly Szántó</a>
+                    </p>
 
-                        <aside class="notes">
-                            - Short introduction to what this thesis is about and what we did
-                        </asside>
-                    </section>
+                    <aside class="notes">
+                        - Short introduction to what this thesis is about and what we did
+                    </asside>
+                </section>
+
+                <section>
+                    <h3>End Result - EgoSim</h3>
+                    <br /><br />
+                    <ul>
+                        <li>Open-source simulation framework for mobile context-aware system design</li>
+                        <li>Produce simulations of egocentric systems</li>
+                        <li>Classify entities based on the SSM</li>
+                        <li>To be used by system designers</li>
+                    </ul>
+
+                    <aside class="notes">
+<small>
+    In this thesis, we have designed and developed EgoSim, an opensource simulation environment for mobile context-aware system design. The framework is meant to be used by system designers to produce simulations of their target egocentric system. The resulting simulations are body-centric, meaning that the simulation user interacts with the simulation environment by controlling a virtual avatar. As the agent interacts with the environment, physical objects and devices in its surroundings are classified according to the SSM context model.This data is available through an API to be accessed by third party service and to be visualised in the ContextClient.
+</small>                        
+                    </asside>
                 </section>
 
                 <section>
                     <h3>Overview</h3>
 
-                    <ul>
-                        <li>Introduction</li>
-                        <li>The EgoSim Framework</li>
+                    <ol>
+                        <li>Background</li>
                         <li>Motivational example</li>
+                        <li>The EgoSim Framework</li>
                         <li>DEMO!</li>
                         <li>Evaluation Results</li>
-                        <li>A few words about Design</li>
-                    </ul>
+                        <li>Conclusion & Future Work</li>
+                    </ol>
+
+                    <aside class="notes">
+<small>
+    <ul>
+        <li>Detailed info on the background of this thesis to clarify the purpose and goals</li>        
+    </ul>
+</small>                        
+                    </aside>
                 </section>
 
                 <!-- High Level Introduction -->
@@ -78,7 +101,7 @@
                         <br /><br />
                         <ul>
                             <li>Ubicomp</li>
-                            <li>Context & Context-Aware Systems</li>
+                            <li>Context-Awareness, Context & Context-Aware Systems</li>
                             <li>Context-Aware System Design</li>
                         </ul>
 
@@ -187,7 +210,7 @@
                     </section>
 
                     <section>
-                        <h3>Example Scenario: Secure Outlets</h3>
+                        <h3>Motivational Example: Secure Outlets</h3>
                         <br /><br />
                         <p><small>The hypothetical problem presented in this scenario is that families cannot make their homes
                            secure enough for their children. To providea solution for this problem, there’s a need for
@@ -227,7 +250,7 @@
                         <img src="assets/egosim_logo_small.jpg" />
 
                         <aside class="notes">
-                            -  EgoSim, the open source framework develped as part of this Masters' Thesis
+                            -  EgoSim, the open source framework developed as part of this Masters' Thesis
                         </aside>
                     </section>
 
@@ -275,17 +298,37 @@
                     </section>
 
                     <section>
-                        <h3>Demo!</h3>
+                        <img src="assets/design.png" />
 
                         <aside class="notes">
-                            - How to import and configure an environment
-                            - How to write custom behaviour
-                            - Navigating throught the environment and interacting with stuff
-                            - The context client & the API
                         </aside>
-                    </section>
+                    </section>                    
+
+                    <section>
+                        <img src="assets/design1.png" />
+
+                        <aside class="notes">
+                        </aside>
+                    </section>                                        
+
+                    <section>
+                        <img src="assets/design2.png" />
+
+                        <aside class="notes">
+                        </aside>
+                    </section>                                                            
                 </section>
 
+                <section>
+                    <h3>Demo!</h3>
+
+                    <aside class="notes">
+                        - How to import and configure an environment
+                        - How to write custom behaviour
+                        - Navigating throught the environment and interacting with stuff
+                        - The context client & the API
+                    </aside>
+                </section>
 
                 <!-- Final -->
                 <section>
