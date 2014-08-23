@@ -15,7 +15,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
         <link rel="stylesheet" href="css/reveal.min.css">
-        <link rel="stylesheet" href="css/theme/simple.css" id="theme">
+        <link rel="stylesheet" href="css/theme/egosim/egosim.css" id="theme">        
 
         <!-- <link rel="stylesheet" href="css/print/pdf.css"> -->
 
@@ -45,10 +45,16 @@
             <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
                 <section>
-                    <h3>An Environment Simulator for Mobile Context-Aware System Design</h3>
+                    <h3>An Environment Simulator for <br />Mobile Context-Aware System Design</h3>
                     <br /><br />
                     <p>
                         <a href="mailto:szanto.karoly@gmail.com">Károly Szántó</a>
+                    </p>
+
+                    <p>
+                        <small>
+                            Supervisor: <a href="mailto:tped@itu.com">Thomas Olof Pederson</a>
+                        </small>
                     </p>
 
                     <aside class="notes">
@@ -213,7 +219,7 @@
                         <h3>Motivational Example: Secure Outlets</h3>
                         <br /><br />
                         <p><small>The hypothetical problem presented in this scenario is that families cannot make their homes
-                           secure enough for their children. To providea solution for this problem, there’s a need for
+                           secure enough for their children. To provide a solution for this problem, there’s a need for
                            a system to constantly monitor the objects a child should keep away from and should not be interacting with.</small></p>
 
                         <aside class="notes">
@@ -282,6 +288,35 @@
                             - as the agent interacts with the environment, compute the SSM spaces
                         </aside>
                     </section>
+
+                    <section>
+                        <h3>Blender</h3>
+                        <img src="assets/blender_logo.png" style="border: none;" />
+                        
+                        <ul>
+                            <li>Integration support offered out of the box by JME</li>
+                            <li>One of the best free tools for creating 3D environments</li>
+                            <li>The quality of the models depends on the abilities of the people who create them</li>
+                        </ul>
+                    </section>                        
+
+                    <section>
+                        <h3>JMonkey Engine</h3>
+                        <img src="assets/jme_platform.png"/>
+                    </section> 
+
+                    <section>
+                        <h3>Design Simulation</h3>
+
+                        <ol>
+                            <li>Create model in a supported third party 3D modeling tool</li>
+                            <li>Import & convert model to *.j3o format</li>
+                            <li>Identify & augment objects with EgocentricContextData</li>
+                            <li>Run simulation & observe context changes in real time using the ContextClient</li>
+                            <li>Write services for the simulated system using the RESTful API</li>
+                        </ol>
+                    </section> 
+
 
                     <section>
                         <h3>EgoSim: Usage</h3>
@@ -357,6 +392,8 @@
                 history: true,
                 center: true,
                 slideNumber: true,
+                width: 1000,
+                height: 700,                
 
                 theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
                 transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none

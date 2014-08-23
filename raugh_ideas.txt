@@ -1,10 +1,15 @@
+- make sure to explain why what I did is better than other approaches and why?! What benefits does it offer?
+- e.g. Compared to other systems, bla bla bla
+
+--------------------------------------------------------
+
 [check] - clearly state out the problem and what I've been doing, even if the listener does not understand: I have tried to address this problem... what was the goal of the thesis!
 
 [check] - Who I'm designing for?! State this out early!
 
 - given an overview of the architecture and then pick one topic to focus on!
 
---------------
+--------------------------------------------------------
 
 Introduction to the subject of the thesis; try to break down/explain the title and purpose of the thesis
     -- Hi, my name is Karoly Szanto and in the followings I will walk you through the work I've done as part
