@@ -4,8 +4,18 @@
 
 @font-face {
     font-family: "fontin";
+    font-style: normal;
+    font-weight: 400;
     src: url('font/Fontin-Regular.ttf') format('truetype'),
          url('font/Fontin_Sans_R_45b.otf') format('opentype');    
+}
+
+@font-face {
+    font-family: "fontin";
+    font-weight: 400;
+    font-style: italic;
+    src: url('font/Fontin-Italic.ttf') format('truetype'),
+         url('font/Fontin_Sans_I_45b.otf') format('opentype');    
 }
 
 /**

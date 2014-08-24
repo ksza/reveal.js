@@ -63,20 +63,36 @@
                 </section>
 
                 <section>
-                    <h3>End Result - EgoSim</h3>
-                    <br /><br />
-                    <ul>
-                        <li>Open-source simulation framework for mobile context-aware system design</li>
-                        <li>Produce simulations of egocentric systems</li>
-                        <li>Classify entities based on the SSM</li>
-                        <li>To be used by system designers</li>
-                    </ul>
+                    <section>
+                        <h3>Practical Contribution - EgoSim</h3>
+                        <br /><br />
+                        <ul>
+                            <li>Open-source simulation framework</li>
+                            <li>Helps system designers to produce simulations of egocentric systems</li>
+                            <li>Interact with the environment by controlling a virtual avatar</li>
+                            <li>Classify entities based on the SSM</li>
+                            <li>Context data available through a RESTful API</li>
+                        </ul>
 
-                    <aside class="notes">
+                        <aside class="notes">
 <small>
     In this thesis, we have designed and developed EgoSim, an opensource simulation environment for mobile context-aware system design. The framework is meant to be used by system designers to produce simulations of their target egocentric system. The resulting simulations are body-centric, meaning that the simulation user interacts with the simulation environment by controlling a virtual avatar. As the agent interacts with the environment, physical objects and devices in its surroundings are classified according to the SSM context model.This data is available through an API to be accessed by third party service and to be visualised in the ContextClient.
 </small>                        
-                    </asside>
+                        </asside>
+                    </section>
+
+                    <section>
+                        <h3>EgoSim - Benefits</h3>
+                        <br /><br />
+
+                        <ol>
+                            <li>Promotes body-centric design vs device-centric</li>
+                            <li>Easy to include everyday physical objects and devices into the system design</li    ><li>Provides easy access to the context through a RESTful API</li>
+                            <li>Works with 3D models produced by various third party software</li>
+                            <li>Open-Source</li>
+                        </ol>
+                    </section>    
+
                 </section>
 
                 <section>
@@ -84,10 +100,11 @@
 
                     <ol>
                         <li>Background</li>
-                        <li>Motivational example</li>
+                        <li>Motivational Example</li>
                         <li>The EgoSim Framework</li>
                         <li>DEMO!</li>
                         <li>Evaluation Results</li>
+                        <li>Design Details <img src="assets/clock.png" style="border: none; max-width: 32px" /></li>
                         <li>Conclusion & Future Work</li>
                     </ol>
 
@@ -198,8 +215,8 @@
                     <section>
                         <h3>The Goal</h3>
                         <br /><br />
-                        <p>"Simulation enables researchers to evaluate scenarios and applications without the difficulties of dealing with hardware sensors and actuators."</p>
-                        <p><small>[V. Reynolds, V. Cahill, and A. Senart, "Requirements for an ubiquitous computing simulation and emulation environment", 2006]</small></p>
+                        <em><p>"Simulation enables researchers to evaluate scenarios and applications without the difficulties of dealing with hardware sensors and actuators."</p>
+                        <p><small>[V. Reynolds, V. Cahill, and A. Senart, "Requirements for an ubiquitous computing simulation and emulation environment", 2006]</small></p></em>
 
                         <aside class="notes">
 <small>                            
@@ -270,14 +287,14 @@
                     <section>
                         <h3>EgoSim: Overview & Features</h3>
                         <br /><br />
-                        <ul>
-                            <li>Works with <a href="http://www.blender.org/">Blender</a> 3D models</li>
+                        <ol>
+                            <li>Works with third party 3D models (i.e. <a href="http://www.blender.org/">Blender</a> 3D models)</li>
                             <li class="fragment">Import and Edit environments with Egocentric Context Data parameters</li>
                             <li class="fragment">First-Person navigation and interaction with the simulated environment</li>
                             <li class="fragment">Real-Time computation of the SSM spaces</li>
                             <li class="fragment">RESTful API to retrieve SSM context data</li>
                             <li class="fragment">Continous visualisation service -- the ContextClient</li>
-                        </ul>
+                        </ol>
 
                         <aside class="notes">
                             - Use Blender to model 3D environments
@@ -289,7 +306,7 @@
                         </aside>
                     </section>
 
-                    <section>
+<!--                     <section>
                         <h3>Blender</h3>
                         <img src="assets/blender_logo.png" style="border: none;" />
                         
@@ -303,9 +320,9 @@
                     <section>
                         <h3>JMonkey Engine</h3>
                         <img src="assets/jme_platform.png"/>
-                    </section> 
+                    </section>  -->
 
-                    <section>
+<!--                     <section>
                         <h3>Design Simulation</h3>
 
                         <ol>
@@ -315,7 +332,7 @@
                             <li>Run simulation & observe context changes in real time using the ContextClient</li>
                             <li>Write services for the simulated system using the RESTful API</li>
                         </ol>
-                    </section> 
+                    </section>  -->
 
 
                     <section>
@@ -331,6 +348,88 @@
                             Explain how each user group would use the framework
                         </aside>
                     </section>
+                </section>
+
+                <section>
+                    <h1>Demo!</h1>
+
+                    <aside class="notes">
+<small>
+    <ol>
+        <li>Talk about Blender! Why is it awesome?!</li>
+        <li>How to import & convert a .blend?</li>
+        <li>The scene explorer tool</li>
+        <li>Agent controls</li>
+
+        <li>The "User Data" in JME</li>
+        <li>EgocentricContextData - gives meaning to objects in your business logic -- in your code is not a chair until you treat it as such!</li>
+        <li>Now you can interact with objects you've marked!</li>
+
+        <li>Pick-up vs CUSTOM</li>
+        <li>Surface vs CUSTOM</li>
+        <li>Callbacks in your code</li>
+
+        <li>The Context-Client</li>
+        <li>The RESTful API</li>
+    </ol>
+</small>                        
+                    </aside>
+                </section>
+
+                <section>
+                    <section>
+                        <h3>Evaluation</h3>
+                        <br /></br />
+
+                        <ul>
+                            <li>What we wanted: comparative study</li>
+                            <li>What we did: user testing</li>
+                        </ul>
+                    </section>
+
+                   <section>
+                        <h3>Evaluation - Procedure</h3>
+                        <br /></br />
+
+                        <ul>
+                            <li>Total of 17 participants with good seniority level in SW engineering (~ 6.41 years)</li>
+                            <li>47.1% familiar with context-aware computing concepts</li>
+                            <li>Only 1 participant familiar with concepts of egocentric interaction paradigm</li>
+                            <li>Evaluation tasks: WarmupTask, Assisted Living Facility & Childproof</li>
+                            <li>Two feedback forms: The Framework & The Simulation</li>
+                            <li>Characteristics: usefulness, usability, responsiveness & classification</li>
+                        </ul>
+                    </section> 
+
+                    <section>
+                        <h3>Evaluation - Positive Reactions</h3>
+                        <br /></br />
+
+                        <em>
+                            <p>"The simulation could provide a cost effective way of gaining valuable insight into the design of an Assisted Living Facility before such a facility is constructed."</p>
+
+                            <br />
+
+                            <p>"Objects can be easily decorated with context information and interacting with them can be tested quickly because the framework takes care of basic interaction and movement in the space."</p>
+                        </em>
+                    </section>
+
+                    <section>
+                        <h3>Evaluation - Negative Reactions</h3>
+                        <br /></br />
+
+                        <em>
+                            <p>"I consider the condition for an object to enter the perception space to be too weak. A user cannot identify an object if only a pixel is within his field of vision ..."</p>
+                            <br />
+                            <p>"Historical information about the agent: what actions has he performed so far, objects with which he has interacted with so far, etc"</p>
+                        </em>
+                    </section>                    
+                </section>
+
+                <section>
+                    <section>
+                        <h3>Design Details</h3>
+                    </section>
 
                     <section>
                         <img src="assets/design.png" />
@@ -340,6 +439,9 @@
                     </section>                    
 
                     <section>
+                        <h3>Design Details</h3>
+                        <br /></br />
+
                         <img src="assets/design1.png" />
 
                         <aside class="notes">
@@ -347,22 +449,53 @@
                     </section>                                        
 
                     <section>
+                        <h3>Design Details</h3>
+                        <br /></br />
+
                         <img src="assets/design2.png" />
 
                         <aside class="notes">
                         </aside>
-                    </section>                                                            
+                    </section>
+
+                    <section>
+                        <h3>Design Details - Proximity</h3>
+                        <br /></br />
+
+                        <img src="assets/view_frustum.png" />
+
+                        <aside class="notes">
+                        </aside>
+                    </section>                    
                 </section>
 
                 <section>
-                    <h3>Demo!</h3>
+                    <section>
+                        <h3>Future Work</h3>
+                        <br /></br />
 
-                    <aside class="notes">
-                        - How to import and configure an environment
-                        - How to write custom behaviour
-                        - Navigating throught the environment and interacting with stuff
-                        - The context client & the API
-                    </aside>
+                        <p>Collected as issues in the <a href="https://github.com/ksza/EgoSim/issues">GitHub repository</a></p>
+
+                        <img src="assets/issue1.png" />
+                        <img src="assets/issue2.png" />
+                        <img src="assets/issue3.png" />
+
+                        <aside class="notes">
+                        </aside>
+                    </section> 
+
+                    <section>
+                        <h3>Conclusion</h3>
+                        <br /></br />
+
+                        <ul>
+                            <li>Useful framework to easily build simulations of egocentric systems</li>
+                            <li>Promotes body-centric design</li>
+                            <li>Easy to include everyday physical objects and devices into the system design</li    ><li>Provides easy access to the context through a RESTful API</li>
+                            <li>Works with 3D models produced by various third party software</li>
+                            <li>Open-Source</li>
+                        </ul>
+                    </section>                                        
                 </section>
 
                 <!-- Final -->
