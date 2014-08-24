@@ -58,7 +58,6 @@
                     </p>
 
                     <aside class="notes">
-                        - Short introduction to what this thesis is about and what we did
                     </asside>
                 </section>
 
@@ -69,14 +68,16 @@
                         <ul>
                             <li>Open-source simulation framework</li>
                             <li>Helps system designers to produce simulations of egocentric systems</li>
-                            <li>Interact with the environment by controlling a virtual avatar</li>
+<!--                             <li>Interact with the environment by controlling a virtual avatar</li>
                             <li>Classify entities based on the SSM</li>
                             <li>Context data available through a RESTful API</li>
-                        </ul>
+ -->                        </ul>
 
                         <aside class="notes">
 <small>
-    In this thesis, we have designed and developed EgoSim, an opensource simulation environment for mobile context-aware system design. The framework is meant to be used by system designers to produce simulations of their target egocentric system. The resulting simulations are body-centric, meaning that the simulation user interacts with the simulation environment by controlling a virtual avatar. As the agent interacts with the environment, physical objects and devices in its surroundings are classified according to the SSM context model.This data is available through an API to be accessed by third party service and to be visualised in the ContextClient.
+<!--     In this thesis, we have designed and developed EgoSim, an opensource simulation environment for mobile context-aware system design. The framework is meant to be used by system designers to produce simulations of their target egocentric system. The resulting simulations are body-centric, meaning that the simulation user interacts with the simulation environment by controlling a virtual avatar. As the agent interacts with the environment, physical objects and devices in its surroundings are classified according to the SSM context model.This data is available through an API to be accessed by third party service and to be visualised in the ContextClient.
+ -->
+Help system designers produce simulations of their target egocentric systems.
 </small>                        
                         </asside>
                     </section>
@@ -86,11 +87,17 @@
                         <br /><br />
 
                         <ol>
-                            <li>Promotes body-centric design vs device-centric</li>
-                            <li>Easy to include everyday physical objects and devices into the system design</li    ><li>Provides easy access to the context through a RESTful API</li>
-                            <li>Works with 3D models produced by various third party software</li>
+                            <!-- <li>Promotes body-centric design vs device-centric</li> -->
+                            <li>Easy to include everyday physical objects and devices into the system design</li    >
+                            <li>Interact with the environment by controlling a virtual avatar</li>
+                            <li>Classify entities based on the SSM</li>
+                            <li>Provides easy access to the context through a RESTful API</li>
+                            <li>Works with 3D models from third party software</li>
                             <li>Open-Source</li>
                         </ol>
+
+                        <aside class="notes">
+                        </aside>                        
                     </section>    
 
                 </section>
@@ -124,14 +131,14 @@
                         <br /><br />
                         <ul>
                             <li>Ubicomp</li>
-                            <li>Context-Awareness, Context & Context-Aware Systems</li>
-                            <li>Context-Aware System Design</li>
+                            <li>Context-Awareness & Context</li>
+                            <li>Context-Aware Systems</li>
                         </ul>
 
                         <aside class="notes">
 <small><ul>
     <li>
-        Ubicomp = a concept in software engineering and computer science where aiming to make computing appear everywhere and anywhere. The vision of this concept is to seamlesly integrate technology into our everyday lives.
+        Ubicomp = the vision of this concept is to seamlessly integrate technology into our everyday lives. Take away the explicit interaction and make it more implicit based on the current situation of the system
     </li>
     <li>
         Context-Awareness = an area from ubicomp which is meant to deal with linking changes in the environment with computer systems, which are otherwise static.
@@ -140,7 +147,7 @@
         Context = is any information that can be used to characterize the situation of an entity, where an entity can be a person, place, or physical or computational object.
     </li>
     <li>
-        Context-Aware System = use the context to provide task-relevant information and/or services to a user. These systems aim to take away the explicit interation and replace it with implicit interaction. The system is tailored in such way to understand the current situtation of the user in regards with the system he/she is interacting with. E.g. -> the "nearby printer" example
+        Context-Aware System = use the context to provide task-relevant information and/or services to a user. These systems aim to take away the explicit interaction and replace it with implicit interaction. The system is tailored in such way to understand the current situation of the user in regards with the system he/she is interacting with. LOCATION as context data! E.g. -> the "city guide" example
     </li>
 </ul></small>                            
                         </aside>
@@ -150,13 +157,16 @@
                         <h3>Introduction</h3>
                         <br /><br />
                         <ul>
-                            <li>Device-Centric Design - Easy to encorporate device, hard to encorporate physical objects</li>
+                            <li>Device-Centric Design - Easy to incorporate device, hard to incorporate physical objects</li>
                             <li>Egocentric Interaction Paradigm</li>
                         </ul>
 
                         <aside class="notes">
 <small><ul>
-    <li>
+    <li>Devices have means of providing context data (GPS module, accelerometer)</li>
+    <li>We interact with a lot of physical devices -- hard to incorporate in design and development</li>
+    <li>Ego. -> It is a bodycentric modeling framework that incorporates physical objects, mediators (i.e. devices) and virtual objects on the basis of proximity and human perception. ”Egocentric” signals that it is the human body and mind of a specific human individual that acts as centre of reference to which all modeling is anchored in this interaction paradigm.</li>
+<!--     <li>
         While designing mobile pervasive computing environments, software developers are bound to work with cutting edge hardware and software technologies and to adopt new communication models for HCI.
     </li>
     <li>
@@ -167,7 +177,7 @@
     </li>
     <li>
         The egocentric-interaction paradigm addresses the struggle of conceptually incorporating the real world into the system design. It is a bodycentric modeling framework that incorporates physical objects, mediators (i.e. devices) and virtual objects on the basis of proximity and human perception. ”Egocentric” signals that it is the human body and mind of a specific human individual that acts as centre of reference to which all modeling is anchored in this interaction paradigm.
-    </li>
+    </li> -->
 </small></ul>
                         </aside>
                     </section>
@@ -177,15 +187,21 @@
                         <img src="assets/ssm_sets.png" />
 
                         <aside class="notes">
-<small><ul>                            
+<small><ul>     
     <li>
-        The Situative Space Model (SSM) is an interaction model and a design tool which captures what a specific human agent can perceive and not perceive, reach and not reach, at any given moment in time.
+        The SSM defines object (physical or virtual) classifications with respect to what degree they can be interacted with, at any given point in time.
     </li>
+
     <li>
-        The SSM is meant to categorize objects around the agent, into a number of sets, based on it’s continuously evolving state as it interacts with the surrounding environment. (Shortly describe the sets!)
+        Address the sensor: "Please imagine yourself in a room! -> how are the objects classified as SSM sets?"
     </li>
+
     <li>
-        Make a parallel with the WIMP paradigm (emplain it!)
+        The SSM is meant to categorize objects around the agent, into a number of sets, based on its continuously evolving state as it interacts with the surrounding environment. (Shortly describe the sets !!!!!)
+    </li>
+
+    <li>
+        Make a parallel with the WIMP paradigm (explain it!)
     </li>
 </small></ul>
                         </aside>
@@ -198,13 +214,13 @@
                     <section>
                         <h3>The Problem</h3>
                         <br /><br />
-                        <p>Designing and developing mobile context-aware systems in a real-life set-up represents a tedious, costly and time consuming process.</p>
+                        <p>Designing and developing mobile context-aware systems in a real-life set-up represents a tedious, costly and time consuming process. Moreover, incorporating physical objects into the system design, making further development and evaluation of the egocentric paradigm a challenge.</p>
 
                         <aside class="notes">
 <small>                            
     Evaluating the SSM was a tedious work and consisted in creating a real-life setup,
     with digitally enhanced physical objects (various sensors to track agent proximity
-    and actions) while using a wide range of technologies to track the agent’s current
+    and actions) while using a wide range of technologies to track the agent's current
     situation (body position, orientation, visual spectrum etc.). This is a costly and
     time consuming process making further development and evaluation of the egocentric
     paradigm a challenge.
@@ -236,7 +252,7 @@
                         <h3>Motivational Example: Secure Outlets</h3>
                         <br /><br />
                         <p><small>The hypothetical problem presented in this scenario is that families cannot make their homes
-                           secure enough for their children. To provide a solution for this problem, there’s a need for
+                           secure enough for their children. To provide a solution for this problem, there's a need for
                            a system to constantly monitor the objects a child should keep away from and should not be interacting with.</small></p>
 
                         <aside class="notes">
@@ -293,7 +309,7 @@
                             <li class="fragment">First-Person navigation and interaction with the simulated environment</li>
                             <li class="fragment">Real-Time computation of the SSM spaces</li>
                             <li class="fragment">RESTful API to retrieve SSM context data</li>
-                            <li class="fragment">Continous visualisation service -- the ContextClient</li>
+                            <li class="fragment">Continuous visualisation service -- the ContextClient</li>
                         </ol>
 
                         <aside class="notes">
@@ -336,7 +352,7 @@
 
 
                     <section>
-                        <h3>EgoSim: Usage</h3>
+                        <h3>EgoSim: User Roles</h3>
                         <br /><br />
                         <ul>
                             <li>As a "System Designer"</li>
@@ -415,7 +431,7 @@
                     </section>
 
                     <section>
-                        <h3>Evaluation - Negative Reactions</h3>
+                        <h3>Evaluation - Suggestions</h3>
                         <br /></br />
 
                         <em>
@@ -445,6 +461,11 @@
                         <img src="assets/design1.png" />
 
                         <aside class="notes">
+<small>
+    <ul>
+        <li>Why EGO Metadata? -> gives meaning to objects!</li>
+    </ul>
+</small>                            
                         </aside>
                     </section>                                        
 
@@ -453,7 +474,11 @@
                         <br /></br />
 
                         <img src="assets/design2.png" />
-
+<small>
+    <ul>
+        <li>How do things get tied together?</li>
+    </ul>
+</small>                            
                         <aside class="notes">
                         </aside>
                     </section>
@@ -465,6 +490,11 @@
                         <img src="assets/view_frustum.png" />
 
                         <aside class="notes">
+<small>
+    <ul>
+        <li></li>
+    </ul>
+</small>                                                        
                         </aside>
                     </section>                    
                 </section>
@@ -492,9 +522,13 @@
                             <li>Useful framework to easily build simulations of egocentric systems</li>
                             <li>Promotes body-centric design</li>
                             <li>Easy to include everyday physical objects and devices into the system design</li    ><li>Provides easy access to the context through a RESTful API</li>
-                            <li>Works with 3D models produced by various third party software</li>
+                            <li>Works with 3D models from third party software</li>
                             <li>Open-Source</li>
                         </ul>
+
+<aside class="notes">
+    All participants have found EgoSim useful, highly usable and responsive, concluding that we have successfully designed a solution based on SSM to the aid ubiquitous system design, contributing with another dimension to the worlds of ubiquitous computing simulators.
+</aside>
                     </section>                                        
                 </section>
 
