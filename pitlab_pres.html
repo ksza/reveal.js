@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>An Environment Simulator for Mobile Context-Aware System Design</title>
+
+        <meta name="description" content="An Environment Simulator for Mobile Context-Aware System Design">
+        <meta name="author" content="Károly Szántó">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="css/reveal.min.css">
+        <link rel="stylesheet" href="css/theme/egosim/egosim.css" id="theme">        
+
+        <!-- <link rel="stylesheet" href="css/print/pdf.css"> -->
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+        <script>
+            if( window.location.search.match( /print-pdf/gi ) ) {
+                var link = document.createElement( 'link' );
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = 'css/print/pdf.css';
+                document.getElementsByTagName( 'head' )[0].appendChild( link );
+            }
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                    <h3>An Environment Simulator for <br />Mobile Context-Aware System Design</h3>
+                    <br /><br />
+                    <p>
+                        <a href="mailto:szanto.karoly@gmail.com">Károly Szántó</a>
+                    </p>
+
+                    <p>
+                        <small>
+                            Supervisor: <a href="mailto:tped@itu.com">Thomas Olof Pederson</a>
+                        </small>
+                    </p>
+
+                    <aside class="notes">
+                    </asside>
+                </section>
+
+                <section>
+                    <section>
+                        <h3>Practical Contribution - EgoSim</h3>
+                        <br /><br />
+                        <ul>
+                            <li>Open-source simulation framework</li>
+                            <li>Helps system designers to produce simulations of egocentric systems</li>
+<!--                             <li>Interact with the environment by controlling a virtual avatar</li>
+                            <li>Classify entities based on the SSM</li>
+                            <li>Context data available through a RESTful API</li>
+ -->                        </ul>
+
+                        <aside class="notes">
+<small>
+<!--     In this thesis, we have designed and developed EgoSim, an opensource simulation environment for mobile context-aware system design. The framework is meant to be used by system designers to produce simulations of their target egocentric system. The resulting simulations are body-centric, meaning that the simulation user interacts with the simulation environment by controlling a virtual avatar. As the agent interacts with the environment, physical objects and devices in its surroundings are classified according to the SSM context model.This data is available through an API to be accessed by third party service and to be visualised in the ContextClient.
+ -->
+Help system designers produce simulations of their target egocentric systems.
+</small>                        
+                        </asside>
+                    </section>
+
+                    <section>
+                        <h3>EgoSim - Benefits</h3>
+                        <br /><br />
+
+                        <ol>
+                            <!-- <li>Promotes body-centric design vs device-centric</li> -->
+                            <li>Works with 3D models from third party software</li>
+                            <li>Easy to include everyday physical objects and devices into the system design</li    >
+                            <li>Interact with the environment by controlling a virtual avatar</li>
+                            <li>Classify entities based on the SSM</li>
+                            <li>Provides easy access to the context through a RESTful API</li>
+                            <li>Open-Source</li>
+                        </ol>
+
+                        <aside class="notes">
+                        </aside>                        
+                    </section>    
+
+                </section>
+
+                <section>
+                    <h3>Overview</h3>
+
+                    <ol>
+                        <li>Background</li>
+                        <li>Motivational Example</li>
+                        <li>The EgoSim Framework</li>
+                        <li>DEMO!</li>
+                        <li>Evaluation Results <img src="assets/clock.png" style="border: none; max-width: 32px" /></li>
+                        <li>Conclusion & Future Work</li>
+                    </ol>
+
+                    <aside class="notes">
+<small>
+    <ul>
+        <li>Detailed info on the background of this thesis to clarify the purpose and goals</li>        
+    </ul>
+</small>                        
+                    </aside>
+                </section>
+
+                <!-- High Level Introduction -->
+                <section>
+                    <section>
+                        <h3>Introduction</h3>
+                        <br /><br />
+                        <ul>
+                            <li>Ubicomp</li>
+                            <li>Context-Awareness & Context</li>
+                            <li>Context-Aware Systems</li>
+                        </ul>
+
+                        <aside class="notes">
+<small><ul>
+    <li>
+        Ubicomp = the vision of this concept is to seamlessly integrate technology into our everyday lives. Take away the explicit interaction and make it more implicit based on the current situation of the system
+    </li>
+    <li>
+        Context-Awareness = an area from ubicomp which is meant to deal with linking changes in the environment with computer systems, which are otherwise static.
+    </li>
+    <li>
+        Context = is any information that can be used to characterize the situation of an entity, where an entity can be a person, place, or physical or computational object.
+    </li>
+    <li>
+        Context-Aware System = use the context to provide task-relevant information and/or services to a user. These systems aim to take away the explicit interaction and replace it with implicit interaction. The system is tailored in such way to understand the current situation of the user in regards with the system he/she is interacting with. LOCATION as context data! E.g. -> the "city guide" example
+    </li>
+</ul></small>                            
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Introduction</h3>
+                        <br /><br />
+                        <ul>
+                            <li>Device-Centric Design - Easy to incorporate device, hard to incorporate physical objects</li>
+                            <li>Egocentric Interaction Paradigm</li>
+                        </ul>
+
+                        <aside class="notes">
+<small><ul>
+    <li>Devices have means of providing context data (GPS module, accelerometer)</li>
+    <li>We interact with a lot of physical devices -- hard to incorporate in design and development</li>
+    <li>Ego. -> It is a bodycentric modeling framework that incorporates physical objects, mediators (i.e. devices) and virtual objects on the basis of proximity and human perception. ”Egocentric” signals that it is the human body and mind of a specific human individual that acts as centre of reference to which all modeling is anchored in this interaction paradigm.</li>
+<!--     <li>
+        While designing mobile pervasive computing environments, software developers are bound to work with cutting edge hardware and software technologies and to adopt new communication models for HCI.
+    </li>
+    <li>
+        Much of the effort has been devoted to address hardware and software challenges and with the explosion of devices in the form of mobile phones and tablets having a wide range of sensing capabilities, modelling of context-aware software became device-centric. This way, designers of mobile contextaware systems base their design mostly on device sensory data.
+    </li>
+    <li>
+        In our everyday lives we encounter and interact with our surrounding environment through a wide range of mobile devices and physical objects. While the current device-centric modeling makes it easy to incorporate devices, incorporating physical objects into a contextaware system design, remains a challenge. When trying to integrate physical objects into the system design, the designer is bound to think in terms of existing technologies that can facilitate their integration; for example, making a system aware of a chair, a designer might think about attaching various sensors to it (pressure, motion, proximity, etc). While the device-centric modeling makes it natural to think about devices, when it comes to integrate physical objects, it limits the designer instead of offering a natural way to solve the problem.
+    </li>
+    <li>
+        The egocentric-interaction paradigm addresses the struggle of conceptually incorporating the real world into the system design. It is a bodycentric modeling framework that incorporates physical objects, mediators (i.e. devices) and virtual objects on the basis of proximity and human perception. ”Egocentric” signals that it is the human body and mind of a specific human individual that acts as centre of reference to which all modeling is anchored in this interaction paradigm.
+    </li> -->
+</small></ul>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Introduction: SSM</h3>
+                        <img src="assets/ssm_sets.png" />
+
+                        <aside class="notes">
+<small><ul>     
+    <li>
+        The SSM defines object (physical or virtual) classifications with respect to what degree they can be interacted with, at any given point in time.
+    </li>
+
+    <li>
+        Address the sensor: "Please imagine yourself in a room! -> how are the objects classified as SSM sets?"
+    </li>
+
+    <li>
+        The SSM is meant to categorize objects around the agent, into a number of sets, based on its continuously evolving state as it interacts with the surrounding environment. (Shortly describe the sets !!!!!)
+    </li>
+
+    <li>
+        Make a parallel with the WIMP paradigm (explain it!)
+    </li>
+</small></ul>
+                        </aside>
+                    </section>
+                </section>
+
+
+                <!-- Introduction to The Problem and the Proposed Solution -->
+                <section>
+                    <section>
+                        <h3>The Problem</h3>
+                        <br /><br />
+                        <p>Designing and developing mobile context-aware systems in a real-life set-up represents a tedious, costly and time consuming process. Moreover, incorporating physical objects into the system design, making further development and evaluation of the egocentric paradigm a challenge.</p>
+
+                        <aside class="notes">
+<small>                            
+    Evaluating the SSM was a tedious work and consisted in creating a real-life setup,
+    with digitally enhanced physical objects (various sensors to track agent proximity
+    and actions) while using a wide range of technologies to track the agent's current
+    situation (body position, orientation, visual spectrum etc.). This is a costly and
+    time consuming process making further development and evaluation of the egocentric
+    paradigm a challenge.
+</small>    
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>The Goal</h3>
+                        <br /><br />
+                        <em><p>"Simulation enables researchers to evaluate scenarios and applications without the difficulties of dealing with hardware sensors and actuators."</p>
+                        <p><small>[V. Reynolds, V. Cahill, and A. Senart, "Requirements for an ubiquitous computing simulation and emulation environment", 2006]</small></p></em>
+
+                        <aside class="notes">
+<small>                            
+    The goal of this project is to design and implement an open-source
+    simulation framework that can help developers of mobile contextaware
+    systems to explore design alternatives. The framework has to dynamically classify
+    physical objects, virtual objects and mediators that are close to the human agent
+    according to the situative space model (SSM), allowing the context-aware system
+    developer to design system logic on the basis of this classification. The human
+    agent is to be represented as an avatar that can move around and perform basic
+    interaction with objects in the simulated environment.
+</small>    
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>Motivational Example: Secure Outlets</h3>
+                        <br /><br />
+                        <p><small>The hypothetical problem presented in this scenario is that families cannot make their homes
+                           secure enough for their children. To provide a solution for this problem, there's a need for
+                           a system to constantly monitor the objects a child should keep away from and should not be interacting with.</small></p>
+
+                        <aside class="notes">
+<small>                            
+    This scenario has been used as a ground for gathering requirements for our
+    system!
+
+    The hypothetical problem presented in this scenario is that families
+    cannot make their homes secure enough for their children. To provide
+    a solution for this problem, there’s a need for a system to constantly
+    monitor the objects a child should keep away from and should not
+    be interacting with. Based on this context information, we can further
+    build various software service to secure the house from the child’s
+    actions. One example of such service is the "Secure Outlets Service"
+    (SOS). This service has to detect whenever a child is approaching an
+    outlet with a small object, in which case it should shut down the electricity
+    switch for outlets, preventing the child from the possibility of
+    getting electrocuted.
+
+    A good solution for this problem could be based on the egocentric
+    interaction paradigm, as it can categorizes all the objects of interest
+    around the human agent. Before implementing the system in a real
+    world set-up, it is best to validate the design by simulating it.
+</small>    
+                        </aside>
+                    </section>
+                </section>
+
+
+                <!-- Solution Overview -->
+                <section>
+                    <section>
+                        <h3>EgoSim</h3>
+                        <img src="assets/egosim_logo_small.jpg" />
+
+                        <aside class="notes">
+                            -  EgoSim, the open source framework developed as part of this Masters' Thesis
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3>EgoSim: Open-Source Framework</h3>
+                        <p><a href="https://github.com/ksza/EgoSim">https://github.com/ksza/EgoSim</a></p>
+                        <br />
+                        <p>Built on top of the <a href="http://jmonkeyengine.org/">JMonkey Engine 3D game engine</a></p>
+                    </section>
+
+                    <section>
+                        <h3>EgoSim: Overview & Features</h3>
+                        <br /><br />
+                        <ol>
+                            <li>Works with third party 3D models (i.e. <a href="http://www.blender.org/">Blender</a> 3D models)</li>
+                            <li class="fragment">Import and Edit environments with Egocentric Context Data parameters</li>
+                            <li class="fragment">First-Person navigation and interaction with the simulated environment</li>
+                            <li class="fragment">Real-Time computation of the SSM spaces</li>
+                            <li class="fragment">RESTful API to retrieve SSM context data</li>
+                            <li class="fragment">Continuous visualisation service -- the ContextClient</li>
+                        </ol>
+
+                        <aside class="notes">
+                            - Use Blender to model 3D environments
+                            - A 3D model simply resembles what a certain model represents, augment it with
+                              egocentric context data to instruct the framework to take it into account
+                            - controls to navigate and interact with the env. Also has collision controls
+                              so the agent won't walk through rigid bodies
+                            - as the agent interacts with the environment, compute the SSM spaces
+                        </aside>
+                    </section>
+
+<!--                     <section>
+                        <h3>Blender</h3>
+                        <img src="assets/blender_logo.png" style="border: none;" />
+                        
+                        <ul>
+                            <li>Integration support offered out of the box by JME</li>
+                            <li>One of the best free tools for creating 3D environments</li>
+                            <li>The quality of the models depends on the abilities of the people who create them</li>
+                        </ul>
+                    </section>                        
+
+                    <section>
+                        <h3>JMonkey Engine</h3>
+                        <img src="assets/jme_platform.png"/>
+                    </section>  -->
+
+<!--                     <section>
+                        <h3>Design Simulation</h3>
+
+                        <ol>
+                            <li>Create model in a supported third party 3D modeling tool</li>
+                            <li>Import & convert model to *.j3o format</li>
+                            <li>Identify & augment objects with EgocentricContextData</li>
+                            <li>Run simulation & observe context changes in real time using the ContextClient</li>
+                            <li>Write services for the simulated system using the RESTful API</li>
+                        </ol>
+                    </section>  -->
+
+
+                    <section>
+                        <h3>EgoSim: User Roles</h3>
+                        <br /><br />
+                        <ul>
+                            <li>As a "System Designer"</li>
+                            <li>As a "Simulation User"</li>
+                            <li>As a "Third Party Service"</li>
+                        </ul>
+
+                        <aside class="notes">
+                            Explain how each user group would use the framework
+                        </aside>
+                    </section>
+                </section>
+
+                <section>
+                    <h1>Demo!</h1>
+
+                    <aside class="notes">
+<small>
+    <ol>
+        <li>Talk about Blender! Why is it awesome?!</li>
+        <li>How to import & convert a .blend?</li>
+        <li>The scene explorer tool</li>
+        <li>Agent controls</li>
+
+        <li>The "User Data" in JME</li>
+        <li>EgocentricContextData - gives meaning to objects in your business logic -- in your code is not a chair until you treat it as such!</li>
+        <li>Now you can interact with objects you've marked!</li>
+
+        <li>Pick-up vs CUSTOM</li>
+        <li>Surface vs CUSTOM</li>
+        <li>Callbacks in your code</li>
+
+        <li>The Context-Client</li>
+        <li>The RESTful API</li>
+    </ol>
+</small>                        
+                    </aside>
+                </section>
+
+                <section>
+                    <section>
+                        <h3>Evaluation</h3>
+                        <br /></br />
+
+                        <ul>
+                            <li>What we wanted: comparative study</li>
+                            <li>What we did: user testing</li>
+                        </ul>
+                    </section>
+
+                   <section>
+                        <h3>Evaluation - Procedure</h3>
+                        <br /></br />
+
+                        <ul>
+                            <li>Total of 17 participants with good seniority level in SW engineering (~ 6.41 years)</li>
+                            <li>47.1% familiar with context-aware computing concepts</li>
+                            <li>Only 1 participant familiar with concepts of egocentric interaction paradigm</li>
+                            <li>Evaluation tasks: WarmupTask, Assisted Living Facility & Childproof</li>
+                            <li>Two feedback forms: The Framework & The Simulation</li>
+                            <li>Characteristics: usefulness, usability, responsiveness & classification</li>
+                        </ul>
+                    </section> 
+
+                    <section>
+                        <h3>Evaluation - Positive Reactions</h3>
+                        <br /></br />
+
+                        <em>
+                            <p>"The simulation could provide a cost effective way of gaining valuable insight into the design of an Assisted Living Facility before such a facility is constructed."</p>
+
+                            <br />
+
+                            <p>"Objects can be easily decorated with context information and interacting with them can be tested quickly because the framework takes care of basic interaction and movement in the space."</p>
+                        </em>
+                    </section>
+
+                    <section>
+                        <h3>Evaluation - Suggestions</h3>
+                        <br /></br />
+
+                        <em>
+                            <p>"I consider the condition for an object to enter the perception space to be too weak. A user cannot identify an object if only a pixel is within his field of vision ..."</p>
+                            <br />
+                            <p>"Historical information about the agent: what actions has he performed so far, objects with which he has interacted with so far, etc"</p>
+                        </em>
+                    </section>                    
+                </section>
+
+                <section>
+                    <section>
+                        <h3>Future Work</h3>
+                        <br /></br />
+
+                        <p>Collected as issues in the <a href="https://github.com/ksza/EgoSim/issues">GitHub repository</a></p>
+
+                        <img src="assets/issue1.png" />
+                        <img src="assets/issue2.png" />
+                        <img src="assets/issue3.png" />
+
+                        <aside class="notes">
+                        </aside>
+                    </section> 
+
+                    <section>
+                        <h3>Future Work</h3>
+                        <br /></br />
+
+                        <ul>
+                            <li>Involve game design / development students</li>
+                            <li class="fragment">Further develop the framework's capabilities: support for sensors / actuators, emulated software on devices, etc</li>
+                            <li class="fragment">Integrate with virtual reality kit</li>
+                            <li class="fragment">Improved API - looking into the future, this could be the same in the production environment</li>
+                        </ul>
+                    </section> 
+
+                    <section>
+                        <h3>Conclusion</h3>
+                        <br /></br />
+
+                        <ul>
+                            <li>Useful framework to easily build simulations of egocentric systems</li>
+                            <li>Promotes body-centric design</li>
+                            <li>Easy to include everyday physical objects and devices into the system design</li    ><li>Provides easy access to the context through a RESTful API</li>
+                            <li>Works with 3D models from third party software</li>
+                            <li>Open-Source</li>
+                        </ul>
+
+<aside class="notes">
+    All participants have found EgoSim useful, highly usable and responsive, concluding that we have successfully designed a solution based on SSM to the aid ubiquitous system design, contributing with another dimension to the worlds of ubiquitous computing simulators.
+</aside>
+                    </section>                                        
+                </section>
+
+                <!-- Final -->
+                <section>
+                    <h1>Thank You!</h1>
+                    <br /><br />
+                    <p>
+                        <a href="mailto:szanto.karoly@gmail.com">Károly Szántó</a>
+                    </p>
+
+                    <p>
+                        <small>
+                            <a href="http://karolyszanto.ro/MastersThesis">http://karolyszanto.ro/MastersThesis</a>
+                        </small>
+                    </p>
+                </section>
+
+            </div>
+
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.min.js"></script>
+
+        <script>
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+                slideNumber: true,
+                width: 1000,
+                height: 700,                
+
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Parallax scrolling
+                // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+                // parallaxBackgroundSize: '2100px 900px',
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+        </script>
+
+        <div class="about-stuff" style="display: none; position: absolute; bottom: 14px; left: 50%; margin-left: -230px; z-index: 20;">
+                Thesis: <a href="http://karolyszanto.ro/MastersThesis">http://karolyszanto.ro/MastersThesis</a>
+                | GitHub: <a href="https://github.com/ksza/EgoSim">https://github.com/ksza/EgoSim</a>
+        </div>
+
+        <script>
+            if( !navigator.userAgent.match( /(iphone|android)/gi ) && !!document.querySelector ) {
+                document.querySelector( '.about-stuff' ).style.display = 'block';
+            }
+        </script>
+    </body>
+</html>
